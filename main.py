@@ -104,7 +104,8 @@ def show_tasks(data, current_user):
             else:
                 print(f"Tasks for {_current_user}:")
                 for index, task in enumerate(tasks):
-                    print(f"|{index}| : {task}")  # ERRO: imprime dicionário inteiro, deve ser task['task']
+                    print(f"|{index}| : {task['task']} [{'✅' if task['check'] == True else '❌'}]")
+                    print("-"*50)  # ERRO: imprime dicionário inteiro, deve ser task['task']
                 return True
 def check_task(data, current_user, task_index):
     _current_user = adjust_str_input(current_user)
@@ -143,8 +144,7 @@ def delete_task(data, current_user , task_index):
         else:
             print('User not was finded')
             return None
-def cancel():
-    pass  # ERRO: função não implementada - remover ou implementar
+
 def get_input(prompt):
     while True:
         value = input(f"{prompt} or write |cancel| to cancel: ").strip()
